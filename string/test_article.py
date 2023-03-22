@@ -11,12 +11,12 @@ class TestArticle(unittest.TestCase):
         self.client = Redis(decode_responses=True)
         self.client.flushdb()
 
-        self.id = "10086"
+        self.article_id = "10086"
         self.title = "greeting"
         self.content = "hello world"
         self.author = "peter"
 
-        self.article = Article(self.client, self.id)
+        self.article = Article(self.client, self.article_id)
 
     def test_create_works(self):
         self.assertTrue(
@@ -34,7 +34,7 @@ class TestArticle(unittest.TestCase):
         
         self.assertEqual(
             data["id"],
-            self.id
+            self.article_id
         )
         self.assertEqual(
             data["title"],

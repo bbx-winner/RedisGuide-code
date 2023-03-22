@@ -8,7 +8,7 @@ from account import Account
 class TestAccount(unittest.TestCase):
 
     def setUp(self):
-        self.client = Redis()
+        self.client = Redis(decode_responses=True)
         self.client.flushdb()
 
         self.account_id = "32595"
